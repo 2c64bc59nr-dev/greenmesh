@@ -381,7 +381,7 @@ export default function LocalModelPage() {
         pre-selects the projector. Photos only work while a projector is loaded with the model.
       </Text>
 
-      <SectionTitle>Text models - no photo input</SectionTitle>
+      <SectionTitle>Suggested text models - no photo input</SectionTitle>
       {TEXT_PRESETS.map(renderPreset)}
 
       <SectionTitle>Any model on Hugging Face</SectionTitle>
