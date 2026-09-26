@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-label="How the GreenMesh mesh works">
+  <defs>
+    <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0 0L10 4L0 8Z" fill="#4BE07A"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="560" fill="#040705"/>
+  <g stroke="#0F1A12"><path d="M0 70H1000M0 140H1000M0 210H1000M0 280H1000M0 350H1000M0 420H1000M0 490H1000"/></g>
+  <text x="40" y="48" font-family="ui-monospace,monospace" font-size="22" fill="#8CFFB0" letter-spacing="1">1. the goal arrives at the planner</text>
+
+  <!-- planner phone -->
+  <rect x="60" y="86" width="300" height="150" rx="14" fill="#08170E" stroke="#2C6B44"/>
+  <text x="84" y="120" font-family="ui-monospace,monospace" font-size="17" fill="#8CFFB0">PHONE A</text>
+  <text x="84" y="146" font-family="ui-monospace,monospace" font-size="14" fill="#5FA97A">planner + worker</text>
+  <text x="84" y="176" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">splits the goal into steps,</text>
+  <text x="84" y="196" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">dispatches each with a</text>
+  <text x="84" y="216" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">mesh-aware system prompt</text>
+
+  <!-- dispatches -->
+  <path d="M366 126 H610" stroke="#4BE07A" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M366 166 H610" stroke="#4BE07A" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M366 206 H610" stroke="#4BE07A" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+  <text x="430" y="118" font-family="ui-monospace,monospace" font-size="12" fill="#5FA97A">POST /v1/chat/completions</text>
+  <text x="430" y="158" font-family="ui-monospace,monospace" font-size="12" fill="#5FA97A">x-greenmesh-hops: 1</text>
+  <text x="430" y="238" font-family="ui-monospace,monospace" font-size="12" fill="#3F8A5C">Bearer &lt;mesh key&gt;</text>
+
+  <!-- workers -->
+  <rect x="620" y="86" width="320" height="66" rx="12" fill="#08170E" stroke="#2C6B44"/>
+  <text x="642" y="112" font-family="ui-monospace,monospace" font-size="16" fill="#8CFFB0">PHONE B</text>
+  <text x="642" y="136" font-family="ui-monospace,monospace" font-size="13" fill="#5FA97A">worker - runs the step locally</text>
+  <rect x="620" y="166" width="320" height="66" rx="12" fill="#08170E" stroke="#2C6B44"/>
+  <text x="642" y="192" font-family="ui-monospace,monospace" font-size="16" fill="#8CFFB0">PHONE C</text>
+  <text x="642" y="216" font-family="ui-monospace,monospace" font-size="13" fill="#5FA97A">worker - another model</text>
+  <rect x="620" y="248" width="320" height="66" rx="12" fill="#08170E" stroke="#1E4A2C" stroke-dasharray="4 4"/>
+  <text x="642" y="274" font-family="ui-monospace,monospace" font-size="16" fill="#5FA97A">ANY OPENAI SERVER</text>
+  <text x="642" y="298" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">your laptop, Ollama, a script</text>
+
+  <!-- merge -->
+  <path d="M780 330 V396" stroke="#4BE07A" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="40" y="380" font-family="ui-monospace,monospace" font-size="22" fill="#8CFFB0" letter-spacing="1">2. the answers merge back on the planner</text>
+  <rect x="60" y="400" width="420" height="120" rx="14" fill="#08170E" stroke="#2C6B44"/>
+  <text x="84" y="430" font-family="ui-monospace,monospace" font-size="14" fill="#8CFFB0">one answer, one conversation</text>
+  <text x="84" y="458" font-family="ui-monospace,monospace" font-size="13" fill="#5FA97A">no cloud, no accounts, no telemetry</text>
+  <text x="84" y="484" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">each phone keeps its own model</text>
+  <text x="84" y="508" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">thermal + battery guards, self-healing node</text>
+  <rect x="520" y="400" width="420" height="120" rx="14" fill="#040705" stroke="#1E4A2C"/>
+  <text x="544" y="430" font-family="ui-monospace,monospace" font-size="14" fill="#8CFFB0">remote control, LAN only</text>
+  <text x="544" y="458" font-family="ui-monospace,monospace" font-size="13" fill="#5FA97A">/v1/mesh/status  /v1/mesh/plan</text>
+  <text x="544" y="484" font-family="ui-monospace,monospace" font-size="13" fill="#5FA97A">/v1/mesh/nodes   /v1/mesh/agent</text>
+  <text x="544" y="508" font-family="ui-monospace,monospace" font-size="13" fill="#3F8A5C">model load, restart, params, chats</text>
+</svg>
