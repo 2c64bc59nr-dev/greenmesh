@@ -130,12 +130,30 @@ curl -H "Authorization: Bearer $KEY" -X POST http://<phone-ip>:8080/v1/mesh/plan
      -d '{"goal":"Name two things a phone mesh is good for, one line each"}'
 ```
 
-## Models
+## Models the app can download (publisher's license applies)
 
-Nothing is bundled. You download what you want, from its publisher, onto your own
-device — so the licence you accept is between you and that publisher, and the app
-will happily run models that did not exist when it shipped. Speech models work the
-same way: Whisper for dictation, Piper voices for speech.
+**Nothing is bundled, and nothing is limited to a list.** The Model tab ships with
+shortcuts for convenience, but it also accepts:
+
+- **any GGUF repository by `owner/name`** — the app reads that repository's own file
+  list and picks a sensible quantisation for you, or you can name the exact file;
+- **any direct download URL** ending in a `.gguf`;
+- any **Whisper GGML** model or **Piper voice** the same way, wherever it is hosted.
+
+The shortcuts are therefore suggestions, not the set:
+
+| Shortcut | Roughly | Good for |
+|---|---|---|
+| Qwen3 0.6B | ~380 MB | trying the app out, and planning on a slow phone |
+| LFM2.5 1.2B | ~800 MB | a better planner without much size |
+| Qwen3 4B / 8B | 2.5–5 GB | real answers, if the phone has room |
+| Qwen VL / InternVL | 3–6 GB | photos: "what is in this picture?" |
+| Whisper | ~57–150 MB | dictation |
+| Piper voices | ~60 MB each | speech (see Limitations) |
+
+Because of that, a model released after this app was built will work in it. The
+licence you accept is between you and the publisher you download from — the app only
+fetches the bytes you asked for onto your own device.
 
 ## Limitations, honestly
 

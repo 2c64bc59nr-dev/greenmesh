@@ -157,6 +157,44 @@ export default function LocalModelPage() {
     if (requiresReload) setParamsDirty(true);
   };
 
+  const [repo, setRepo] = useState("");
+  const [repoFile, setRepoFile] = useState("");
+  const [repoBusy, setRepoBusy] = useState(false);
+  const [repoError, setRepoError] = useState(null);
+
+  // Any Hugging Face GGUF repository, not just the shortcuts listed above. Give
+  // owner/name and the app picks a sensibly-sized quantisation from that repo's own
+  // file list, or name the file yourself. It then uses exactly the same download
+  // path the presets use, so behaviour is identical.
+  const downloadFromRepo = async () => {
+    const clean = String(repo || "")
+      .trim()
+      .replace(/^https?:\/\/huggingface\.co\//, "")
+      .replace(/\/+$/, "");
+    if (!clean || local.downloading || repoBusy) return;
+    let file = String(repoFile || "").trim();
+    setRepoError(null);
+    try {
+      setRepoBusy(true);
+      if (!file) {
+        const response = await fetch(`https://huggingface.co/api/models/${clean}`);
+        if (!response.ok) throw new Error(`repository not found (${response.status})`);
+        const data = await response.json();
+        const files = (data.siblings || [])
+          .map((entry) => entry.rfilename)
+          .filter((name) => /\.gguf$/i.test(name));
+        if (!files.length) throw new Error("that repository contains no .gguf file");
+        const order = ["q4_k_m", "q4_k_s", "q5_k_m", "q4_0", "q8_0"];
+        file = order.map((q) => files.find((f) => f.toLowerCase().includes(q))).find(Boolean) || files[0];
+      }
+      setRepoBusy(false);
+      download(`https://huggingface.co/${clean}/resolve/main/${file}`);
+    } catch (error) {
+      setRepoBusy(false);
+      setRepoError(String((error && error.message) || error));
+    }
+  };
+
   const download = (target) => {
     const value = (target || url).trim();
     if (!value) return;
@@ -345,6 +383,42 @@ export default function LocalModelPage() {
 
       <SectionTitle>Text models - no photo input</SectionTitle>
       {TEXT_PRESETS.map(renderPreset)}
+
+      <SectionTitle>Any model on Hugging Face</SectionTitle>
+      <Card>
+        <Field
+          label="Repository (owner/name)"
+          value={repo}
+          onChangeText={setRepo}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="bartowski/Qwen2.5-7B-Instruct-GGUF"
+        />
+        <Field
+          label="File inside the repository (optional)"
+          value={repoFile}
+          onChangeText={setRepoFile}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="leave empty to pick a quantisation automatically"
+        />
+        <Text style={styles.progressText}>
+          The list above is a set of shortcuts, not a limit: any GGUF repository works,
+          and so does any direct download URL below. Speech models the same way -
+          Whisper GGML and Piper voices, wherever they are hosted.
+        </Text>
+        {repoError ? (
+          <Text style={styles.progressText}>
+            Could not use that repository: {repoError}
+          </Text>
+        ) : null}
+        <Button
+          title="Download from repository"
+          style={styles.cardButton}
+          loading={local.downloading || repoBusy}
+          onPress={downloadFromRepo}
+        />
+      </Card>
 
       <Card>
         <Field
