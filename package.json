@@ -1,0 +1,61 @@
+{
+  "name": "greenmesh",
+  "version": "1.2.0",
+  "description": "Turn an Android phone into an AI worker node - on-device models, an OpenAI-compatible server, and a mesh of phones that share jobs.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2c64bc59nr-dev/greenmesh.git"
+  },
+  "keywords": [
+    "llama.cpp",
+    "llama.rn",
+    "on-device",
+    "local-llm",
+    "openai-compatible",
+    "android",
+    "expo",
+    "mesh"
+  ],
+  "main": "expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start -c --android",
+    "build:apk": "cd android && ./gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@fugood/react-native-audio-pcm-stream": "^1.1.4",
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "@reduxjs/toolkit": "^2.12.0",
+    "axios": "^1.8.1",
+    "expo": "~52.0.0",
+    "expo-asset": "~11.0.5",
+    "expo-av": "~15.0.2",
+    "expo-clipboard": "~7.0.1",
+    "expo-document-picker": "~13.0.3",
+    "expo-file-system": "~18.0.12",
+    "expo-image-picker": "~16.0.6",
+    "expo-network": "~7.0.5",
+    "expo-sharing": "~13.0.1",
+    "expo-speech": "~13.0.1",
+    "llama.rn": "^0.9.7",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "react-native-sherpa-onnx": "^0.4.4",
+    "react-native-tcp-socket": "^6.4.3",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "whisper.rn": "^0.7.4"
+  },
+  "expo": {
+    "name": "GreenMesh AI Chat",
+    "slug": "greenmesh-ai-chat",
+    "version": "1.2.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "GreenMesh",
+  "slug": "greenmesh",
+  "version": "1.2.0",
+  "userInterfaceStyle": "dark",
+  "backgroundColor": "#040705",
+  "splash": {
+    "backgroundColor": "#040705"
+  },
+  "android": {
+    "package": "com.greenmesh.app",
+    "versionCode": 3,
+    "permissions": [
+      "INTERNET",
+      "WAKE_LOCK",
+      "ACCESS_WIFI_STATE",
+      "CHANGE_WIFI_STATE",
+      "FOREGROUND_SERVICE",
+      "FOREGROUND_SERVICE_DATA_SYNC",
+      "POST_NOTIFICATIONS",
+      "READ_MEDIA_IMAGES"
+    ]
+  },
+  "plugins": [
+    "expo-asset"
+  ]
+}

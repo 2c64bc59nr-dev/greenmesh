@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- GreenMesh icon: a green phosphor CRT - dark case, glowing screen with
+     scanlines, the mesh glyph on it, a power LED. Vector only: sharp at every
+     density, no raster asset to keep in sync. Drawn inside the adaptive safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M24,24 L84,24 L84,74 L24,74 Z" android:strokeColor="#4BE07A"
+        android:strokeWidth="9" android:strokeAlpha="0.16" android:strokeLineJoin="round" />
+    <path android:pathData="M24,24 L84,24 A5,5 0 0 1 89,29 L89,71 A5,5 0 0 1 84,76 L24,76 A5,5 0 0 1 19,71 L19,29 A5,5 0 0 1 24,24 Z"
+        android:fillColor="#0A120C" android:strokeColor="#1E4A2C" android:strokeWidth="1.6" />
+    <path android:pathData="M26,31 L82,31 A3,3 0 0 1 85,34 L85,66 A3,3 0 0 1 82,69 L26,69 A3,3 0 0 1 23,66 L23,34 A3,3 0 0 1 26,31 Z"
+        android:fillColor="#07160D" android:strokeColor="#4BE07A" android:strokeWidth="1.8" />
+    <path android:pathData="M26,39 L82,39" android:strokeColor="#4BE07A" android:strokeWidth="0.7" android:strokeAlpha="0.22" />
+    <path android:pathData="M26,47 L82,47" android:strokeColor="#4BE07A" android:strokeWidth="0.7" android:strokeAlpha="0.22" />
+    <path android:pathData="M26,55 L82,55" android:strokeColor="#4BE07A" android:strokeWidth="0.7" android:strokeAlpha="0.22" />
+    <path android:pathData="M26,63 L82,63" android:strokeColor="#4BE07A" android:strokeWidth="0.7" android:strokeAlpha="0.22" />
+    <path android:pathData="M38,42 L70,42" android:strokeColor="#4BE07A" android:strokeWidth="1.6" android:strokeAlpha="0.9" />
+    <path android:pathData="M38,42 L54,58" android:strokeColor="#4BE07A" android:strokeWidth="1.6" android:strokeAlpha="0.9" />
+    <path android:pathData="M70,42 L54,58" android:strokeColor="#4BE07A" android:strokeWidth="1.6" android:strokeAlpha="0.9" />
+    <path android:pathData="M38,42 m-3.4,0 a3.4,3.4 0 1,0 6.8,0 a3.4,3.4 0 1,0 -6.8,0" android:fillColor="#8CFFB0" />
+    <path android:pathData="M70,42 m-3.4,0 a3.4,3.4 0 1,0 6.8,0 a3.4,3.4 0 1,0 -6.8,0" android:fillColor="#8CFFB0" />
+    <path android:pathData="M54,58 m-3.4,0 a3.4,3.4 0 1,0 6.8,0 a3.4,3.4 0 1,0 -6.8,0" android:fillColor="#8CFFB0" />
+    <path android:pathData="M47,76 L61,76 L64,82 L44,82 Z" android:fillColor="#0A120C" android:strokeColor="#1E4A2C" android:strokeWidth="1.2" />
+    <path android:pathData="M74,80 m-2.6,0 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0" android:fillColor="#4BE07A" />
+</vector>

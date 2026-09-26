@@ -1,0 +1,46 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Expo / Metro caches
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# native build output
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+android/local.properties
+*.jks
+*.keystore
+# debug.keystore is NOT exempt: signing material never ships
+android/app/debug.keystore
+android/keystore.properties
+android/app/release/
+
+# iOS (unused today, keept out to avoid noise)
+ios/Pods/
+ios/build/
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+
+# editors / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# logs and scratch files
+*.log
+npm-debug.log*
+yarn-error.log*
+*.apk
+!docs/screenshots/*.png
